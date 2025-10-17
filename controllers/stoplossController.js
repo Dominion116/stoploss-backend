@@ -1,10 +1,13 @@
 import StopLoss from "../models/StopLoss.js";
 import axios from "axios";
 
+
+
 /**
  * Handles incoming Telegram webhook messages.
  */
 export const handleTelegramMessage = async (req, res) => {
+  console.log("📩 Incoming Telegram Webhook:", JSON.stringify(req.body, null, 2));
   try {
     const message = req.body.message;
     if (!message || !message.text) return res.sendStatus(200);
